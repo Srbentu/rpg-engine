@@ -1,7 +1,8 @@
 {
-	"devDependencies": {
-		"@types/jest": "^30.0.0",
-		"jest": "^30.4.2",
-		"prettier": "^3.9.5"
-	}
+  "type": "module",
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.4.2",
+    "prettier": "^3.9.5"
+  }
 }
