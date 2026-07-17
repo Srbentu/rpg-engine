@@ -70,6 +70,29 @@ const createCharacter = (characterData) => {
         data: equippedWeapons,
       };
     },
+    unequipWeapon: (itemId) => {
+      const item = equippedWeapons.find(({ id }) => id === itemId);
+      if (character.hp <= 0) {
+        return {
+          success: false,
+          error: "Personagem morto não pode desequipar armas",
+        };
+      }
+      if (!item) {
+        return {
+          success: false,
+          error: "Personagem não tem armas para desequipar",
+        };
+      }
+      const updatedEquippedWeapons = equippedWeapons.filter(
+        ({ id }) => id !== item.id,
+      );
+      equippedWeapons = [...updatedEquippedWeapons];
+      return {
+        success: true,
+        data: equippedWeapons,
+      };
+    },
   };
 };
 
