@@ -143,6 +143,9 @@ const createCharacter = (characterData) => {
         data: "Spell invocado com sucesso",
       };
     },
+    checkMana() {
+      return character.mana;
+    },
   };
 };
 
