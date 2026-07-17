@@ -128,6 +128,21 @@ const createCharacter = (characterData) => {
         data: "Spell aprendido com sucesso",
       };
     },
+    castSpell: (spell) => {
+      const findSpell = spells.find(({ name }) => name === spell.name);
+      const newMana = character.mana - spell.mana;
+      if (character.mana < spell.mana) {
+        return {
+          success: false,
+          error: "Você não tem mana suficiente",
+        };
+      }
+      character = { ...character, mana: Math.max(0, newMana) };
+      return {
+        success: true,
+        data: "Spell invocado com sucesso",
+      };
+    },
   };
 };
 
