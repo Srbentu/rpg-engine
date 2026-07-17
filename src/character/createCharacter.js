@@ -107,6 +107,27 @@ const createCharacter = (characterData) => {
         data: "Sucesso: Personagem recebeu dano, HP atualizado",
       };
     },
+    learnSpell: (spell) => {
+      const spellAlreadyExists = spells.some(({ name }) => name === spell.name);
+      if (character.class !== "mage") {
+        return {
+          success: false,
+          error: "Somente magos podem aprender magia",
+        };
+      }
+
+      if (spellAlreadyExists) {
+        return {
+          success: false,
+          error: "Spell já aprendido anteriormente",
+        };
+      }
+      spells = [...spells, spell];
+      return {
+        success: true,
+        data: "Spell aprendido com sucesso",
+      };
+    },
   };
 };
 
