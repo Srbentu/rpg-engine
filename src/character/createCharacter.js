@@ -93,6 +93,20 @@ const createCharacter = (characterData) => {
         data: equippedWeapons,
       };
     },
+    receiveDamage: (amount) => {
+      if (amount < 0) {
+        return {
+          success: false,
+          error: "Dano precisa ser positivo",
+        };
+      }
+      const newHp = character.hp - amount;
+      character = { ...character, hp: Math.max(0, newHp) };
+      return {
+        success: true,
+        data: "Sucesso: Personagem recebeu dano, HP atualizado",
+      };
+    },
   };
 };
 
